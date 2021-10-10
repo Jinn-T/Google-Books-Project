@@ -25,7 +25,7 @@ input {
   padding: 5%;
   background-color: beige;
 }
-.form .form-input {
+.form #form-input {
   padding: 10px;
   margin: 10px;
   border: none;
@@ -49,10 +49,12 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 400px;
+  width: 100vw;
 }
 
 .book-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 250px);
-  grid-template-rows: repeat(3, 300px);
+  display: flex;
+  height: 300px;
+  width: 90vw;
 }
