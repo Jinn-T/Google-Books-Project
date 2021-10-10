@@ -15,23 +15,55 @@ const getBooks = async (title) => {
 };
 getBooks("newcastle");
 
-// Functions to creae node and append that to our parent html element
+// console.log(bookTitle);
+// Reusable DOM Functions
 function createNode(element) {
     return document.createElement(element);
 }
 function append(parent, el) {
     return parent.appendChild(el);
 }
+function textNode(text) {
+    return document.createTextNode(text);
+}
 
 //create an on click event that will grab our input and create new elements
 button.addEventListener("click", async (event) => {
-    const bookSearch = input.value; // .value grabs the text from input
-
-    if (!bookSearch) {
-        alert("please insert valid text");
+    const title = input.value; // .value grabs the text from input
+    console.log(title);
+    if (!title) {
+        alert("please insert valid book");
         return;
     }
     const books = await getBooks(title); // grabbing the data from api
+
+    const bookItems = books.map((book) => {
+        const element = createNode("p");
+        const bookTitle = `${book.volumeInfo.title}`;
+        const bookAuthor = `${book.volumeInfo.authors}`;
+        const bookDescription = `${book.volumeInfo.description}`;
+        console.log(bookTitle);
+
+        const textNodeTitle = textNode(bookTitle);
+        const textNodeAuthor = textNode(bookAuthor);
+        const textNodeDescription = textNode(bookDescription);
+
+        append(element, textNodeTitle);
+        append(element, textNodeAuthor);
+        append(element, textNodeDescription);
+
+        console.log(element);
+        return element;
+    });
+
+    // attaching the elements to grid
+
+    // bookItems.forEach((e) => {
+    //     append(grid, e);
+    // });
+
+    const append = (parent) => (child) => parent.appendChild(child);
+    bookItems.forEach(append(grid));
 });
 
 //array keys under volumeInfo{} = image, author, title, description

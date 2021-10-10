@@ -44,6 +44,15 @@ input {
   padding-right: 8px;
 }
 
+.book-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .book-grid {
   display: grid;
+  grid-template-columns: repeat(3, 250px);
+  grid-template-rows: repeat(3, 300px);
 }
