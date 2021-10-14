@@ -59,3 +59,17 @@ input {
     // grid-template-columns: repeat(3, 250px);
     // grid-template-rows: repeat(3, 300px);
 }
+
+.list-item {
+    list-style-type: none;
+    text-align: center;
+    border: solid 3px #622b42;
+    border-radius: 8px;
+    margin: 5px 200px 5px 200px;
+    padding: 9px;
+}
+
+.book-img {
+    height: 200px;
+    width: 150px;
+}

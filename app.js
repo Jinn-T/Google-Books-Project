@@ -41,6 +41,8 @@ button.addEventListener("click", async (event) => {
 
     const bookItems = books.map((book) => {
         const element = createNode("li");
+        const bookImg = document.createElement("img");
+
         //element.classList.add("addclassname");
         // add classlist to element to style
         //create element <br> to split up elements
@@ -48,7 +50,7 @@ button.addEventListener("click", async (event) => {
         const bookTitle = `${book.volumeInfo.title}`;
         const bookAuthor = `${book.volumeInfo.authors}`;
         const bookDescription = `${book.volumeInfo.description}`;
-        // const bookImage = "book.volumeInfo.imageLinks";
+        const bookImage = book.volumeInfo.imageLinks;
         console.log(bookTitle);
 
         const textNodeTitle = textNode(bookTitle);
@@ -58,6 +60,7 @@ button.addEventListener("click", async (event) => {
         element.appendChild(textNodeTitle);
         element.appendChild(textNodeAuthor);
         element.appendChild(textNodeDescription);
+
         // element.appendChild(bookImage);
 
         console.log(element);
